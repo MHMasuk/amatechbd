@@ -1,6 +1,21 @@
 import {Github, Linkedin, Mail, MapPin, Phone, Twitter} from "lucide-react";
 import React from "react";
 
+export const metadata = {
+    title: 'Contact AmaTechBD - Software Development Company in Dhaka, Bangladesh',
+    description: 'Get in touch with AmaTechBD for your software development needs. Located in Dhaka, Bangladesh. Contact us for web development, mobile apps, and custom software solutions.',
+    keywords: ['contact AmaTechBD', 'software development company Dhaka', 'Bangladesh tech company contact', 'hire developers Bangladesh'],
+    openGraph: {
+        title: 'Contact AmaTechBD - Software Development Company in Dhaka, Bangladesh',
+        description: 'Get in touch with AmaTechBD for your software development needs. Located in Dhaka, Bangladesh.',
+        url: 'https://amatechbd.com/contact',
+        images: ['/og-contact.jpg'],
+    },
+    alternates: {
+        canonical: 'https://amatechbd.com/contact',
+    },
+};
+
 const ContactPage = () => {
     return(
     <div className="min-h-screen pt-20">

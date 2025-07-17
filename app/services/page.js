@@ -3,6 +3,21 @@
 import {ArrowRight, CheckCircle, Database, Globe, Shield, Smartphone} from "lucide-react";
 import React, {useState} from "react";
 
+export const metadata = {
+    title: 'Software Development Services - Web, Mobile & Custom Solutions | AmaTechBD',
+    description: 'Comprehensive software development services in Bangladesh: web development, mobile apps, custom software, backend systems, and digital transformation solutions.',
+    keywords: ['software development services', 'web development Bangladesh', 'mobile app development', 'custom software solutions', 'digital transformation'],
+    openGraph: {
+        title: 'Software Development Services - Web, Mobile & Custom Solutions | AmaTechBD',
+        description: 'Comprehensive software development services including web development, mobile apps, and custom solutions in Bangladesh.',
+        url: 'https://amatechbd.com/services',
+        images: ['/og-services.jpg'],
+    },
+    alternates: {
+        canonical: 'https://amatechbd.com/services',
+    },
+};
+
 const ServicePage = () => {
     const [selectedService, setSelectedService] = useState(null);
 
