@@ -1,376 +1,311 @@
 'use client'
 
-import React, {useState} from "react";
-import {ArrowRight, CheckCircle, Database, Globe, Shield, Smartphone} from "lucide-react";
+import React, { useState } from "react";
+import { ArrowRight, CheckCircle, Database, Globe, Shield, Smartphone, Code, Users, Star, Clock, Award } from "lucide-react";
 
-const ServicePage = () => {
-    const [selectedService, setSelectedService] = useState(null);
+const ServicesPage = () => {
+    const [activeService, setActiveService] = useState(0);
 
-    const serviceDetails = {
-        'web-development': {
-            title: 'Web Development',
+    const services = [
+        {
+            id: 'web-development',
             icon: Globe,
-            hero: 'Modern Web Applications That Drive Results',
-            description: 'We create stunning, responsive websites and powerful web applications using cutting-edge technologies. From simple landing pages to complex enterprise solutions, we deliver digital experiences that engage users and drive business growth.',
+            title: 'Web Development',
+            subtitle: 'Enterprise Web Solutions',
+            description: 'Build scalable, secure, and high-performance web applications that drive business growth and enhance user experience.',
             features: [
-                {
-                    title: 'Frontend Development',
-                    description: 'Interactive user interfaces built with React, Vue.js, and modern JavaScript frameworks',
-                    technologies: ['React', 'Next.js', 'Vue.js', 'TypeScript', 'Tailwind CSS']
-                },
-                {
-                    title: 'Backend Development',
-                    description: 'Robust server-side solutions with scalable APIs and database integration',
-                    technologies: ['Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'Redis']
-                },
-                {
-                    title: 'E-commerce Solutions',
-                    description: 'Complete online stores with payment processing and inventory management',
-                    technologies: ['Shopify', 'WooCommerce', 'Stripe', 'PayPal', 'Custom Carts']
-                },
-                {
-                    title: 'Progressive Web Apps',
-                    description: 'App-like experiences that work offline and install on devices',
-                    technologies: ['Service Workers', 'Web App Manifest', 'Push Notifications']
-                }
+                'Custom Web Applications',
+                'E-commerce Platforms',
+                'Progressive Web Apps (PWA)',
+                'API Development & Integration',
+                'Content Management Systems',
+                'Performance Optimization'
             ],
-            process: [
-                {
-                    step: 1,
-                    title: 'Discovery & Planning',
-                    description: 'Understanding your requirements and creating a detailed project roadmap'
-                },
-                {
-                    step: 2,
-                    title: 'Design & Wireframing',
-                    description: 'Creating user-centered designs and interactive prototypes'
-                },
-                {step: 3, title: 'Development', description: 'Building your application with clean, scalable code'},
-                {step: 4, title: 'Testing & QA', description: 'Rigorous testing across devices and browsers'},
-                {step: 5, title: 'Launch & Support', description: 'Deployment and ongoing maintenance support'}
-            ],
+            technologies: ['React', 'Next.js', 'Vue.js', 'Node.js', 'Python', 'PostgreSQL'],
             benefits: [
-                'Responsive design that works on all devices',
-                'SEO-optimized for better search rankings',
+                'Responsive across all devices',
+                'SEO optimized for better visibility',
                 'Fast loading times and performance',
                 'Secure and scalable architecture',
-                'Easy content management systems',
+                'Easy content management',
                 'Analytics and tracking integration'
             ],
+            process: [
+                'Requirements Analysis',
+                'UI/UX Design',
+                'Development & Testing',
+                'Deployment & Launch',
+                'Maintenance & Support'
+            ],
             pricing: {
-                basic: {
-                    name: 'Basic Website',
-                    price: '$2,999',
-                    features: ['Up to 5 pages', 'Responsive design', 'Basic SEO', '30 days support']
-                },
-                professional: {
-                    name: 'Professional Web App',
-                    price: '$7,999',
-                    features: ['Custom functionality', 'Database integration', 'Admin panel', '90 days support']
-                },
-                enterprise: {
-                    name: 'Enterprise Solution',
-                    price: 'Custom',
-                    features: ['Complex integrations', 'Custom APIs', 'Scalable architecture', '1 year support']
-                }
-            }
+                starter: { price: '$2,999', duration: '4-6 weeks' },
+                professional: { price: '$7,999', duration: '8-12 weeks' },
+                enterprise: { price: 'Custom', duration: '12+ weeks' }
+            },
+            color: 'from-blue-500 to-blue-600'
         },
-        'mobile-development': {
-            title: 'Mobile App Development',
+        {
+            id: 'mobile-development',
             icon: Smartphone,
-            hero: 'Native & Cross-Platform Mobile Solutions',
-            description: 'Transform your ideas into powerful mobile applications. We develop native iOS and Android apps, as well as cross-platform solutions that deliver exceptional user experiences across all devices.',
+            title: 'Mobile Development',
+            subtitle: 'Native & Cross-Platform Apps',
+            description: 'Create powerful mobile applications that engage users and drive business results across iOS and Android platforms.',
             features: [
-                {
-                    title: 'Native iOS Development',
-                    description: 'High-performance apps built specifically for iPhone and iPad users',
-                    technologies: ['Swift', 'SwiftUI', 'Objective-C', 'Xcode', 'Core Data']
-                },
-                {
-                    title: 'Native Android Development',
-                    description: 'Feature-rich Android applications optimized for Google Play Store',
-                    technologies: ['Kotlin', 'Java', 'Android Studio', 'Room Database', 'Jetpack Compose']
-                },
-                {
-                    title: 'Cross-Platform Development',
-                    description: 'Write once, run everywhere with React Native and Flutter',
-                    technologies: ['React Native', 'Flutter', 'Expo', 'Dart', 'JavaScript']
-                },
-                {
-                    title: 'App Store Optimization',
-                    description: 'Complete app store presence with marketing and optimization',
-                    technologies: ['ASO', 'App Analytics', 'A/B Testing', 'User Acquisition']
-                }
+                'Native iOS & Android Apps',
+                'Cross-Platform Development',
+                'Mobile UI/UX Design',
+                'App Store Optimization',
+                'Push Notifications',
+                'Offline Functionality'
+            ],
+            technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase', 'AWS'],
+            benefits: [
+                'Native performance and feel',
+                'Cross-platform compatibility',
+                'App store ready deployment',
+                'Push notifications and engagement',
+                'Offline capabilities',
+                'Real-time synchronization'
             ],
             process: [
-                {
-                    step: 1,
-                    title: 'Concept & Strategy',
-                    description: 'Defining app concept, target audience, and platform strategy'
-                },
-                {
-                    step: 2,
-                    title: 'UI/UX Design',
-                    description: 'Creating intuitive interfaces following platform guidelines'
-                },
-                {step: 3, title: 'Development', description: 'Building robust, scalable mobile applications'},
-                {step: 4, title: 'Testing', description: 'Comprehensive testing on real devices and simulators'},
-                {
-                    step: 5,
-                    title: 'App Store Launch',
-                    description: 'Publishing and marketing your app for maximum visibility'
-                }
-            ],
-            benefits: [
-                'Native performance and user experience',
-                'Offline functionality capabilities',
-                'Push notifications and engagement',
-                'Device hardware integration',
-                'App store optimization included',
-                'Post-launch analytics and insights'
+                'App Strategy & Planning',
+                'UI/UX Design',
+                'Development & Testing',
+                'App Store Submission',
+                'Post-Launch Support'
             ],
             pricing: {
-                basic: {
-                    name: 'Simple Mobile App',
-                    price: '$12,999',
-                    features: ['Single platform', 'Basic features', 'App store submission', '60 days support']
-                },
-                professional: {
-                    name: 'Advanced Mobile App',
-                    price: '$24,999',
-                    features: ['Cross-platform', 'Backend integration', 'Push notifications', '6 months support']
-                },
-                enterprise: {
-                    name: 'Enterprise Mobile Solution',
-                    price: 'Custom',
-                    features: ['Complex integrations', 'Custom APIs', 'Advanced security', '1 year support']
-                }
-            }
+                starter: { price: '$12,999', duration: '8-12 weeks' },
+                professional: { price: '$24,999', duration: '12-16 weeks' },
+                enterprise: { price: 'Custom', duration: '16+ weeks' }
+            },
+            color: 'from-emerald-500 to-emerald-600'
         },
-        'backend-systems': {
-            title: 'Backend & Database Systems',
+        {
+            id: 'backend-systems',
             icon: Database,
-            hero: 'Scalable Backend Infrastructure',
-            description: 'Build the foundation of your digital products with robust backend systems. We create APIs, databases, and server infrastructure that scale with your business and handle millions of requests.',
+            title: 'Backend Systems',
+            subtitle: 'Scalable Infrastructure',
+            description: 'Build robust, scalable backend systems and APIs that power your applications and support business growth.',
             features: [
-                {
-                    title: 'API Development',
-                    description: 'RESTful and GraphQL APIs for seamless data exchange',
-                    technologies: ['REST APIs', 'GraphQL', 'OpenAPI', 'API Gateway', 'Rate Limiting']
-                },
-                {
-                    title: 'Database Design',
-                    description: 'Optimized database architecture for performance and scalability',
-                    technologies: ['PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch', 'Data Modeling']
-                },
-                {
-                    title: 'Cloud Infrastructure',
-                    description: 'Scalable cloud solutions for high availability and performance',
-                    technologies: ['AWS', 'Google Cloud', 'Azure', 'Docker', 'Kubernetes']
-                },
-                {
-                    title: 'Microservices Architecture',
-                    description: 'Modular systems that scale independently and improve maintainability',
-                    technologies: ['Microservices', 'Service Mesh', 'Event Streaming', 'Load Balancing']
-                }
+                'RESTful & GraphQL APIs',
+                'Database Design & Optimization',
+                'Cloud Architecture',
+                'Microservices Development',
+                'Real-time Systems',
+                'Third-party Integrations'
             ],
-            process: [
-                {
-                    step: 1,
-                    title: 'Architecture Planning',
-                    description: 'Designing scalable system architecture and data flow'
-                },
-                {
-                    step: 2,
-                    title: 'Database Design',
-                    description: 'Creating optimized database schemas and relationships'
-                },
-                {step: 3, title: 'API Development', description: 'Building secure and performant APIs'},
-                {step: 4, title: 'Infrastructure Setup', description: 'Deploying on cloud platforms with auto-scaling'},
-                {
-                    step: 5,
-                    title: 'Monitoring & Optimization',
-                    description: 'Continuous monitoring and performance tuning'
-                }
-            ],
+            technologies: ['Node.js', 'Python', 'Java', 'PostgreSQL', 'MongoDB', 'AWS', 'Docker'],
             benefits: [
                 'High availability and uptime',
                 'Automatic scaling capabilities',
                 'Comprehensive API documentation',
-                'Real-time monitoring and alerts',
+                'Real-time monitoring',
                 'Backup and disaster recovery',
-                'Security best practices implemented'
-            ],
-            pricing: {
-                basic: {
-                    name: 'Starter Backend',
-                    price: '$4,999',
-                    features: ['Basic API', 'Database setup', 'Cloud deployment', '30 days support']
-                },
-                professional: {
-                    name: 'Professional Backend',
-                    price: '$12,999',
-                    features: ['Complex APIs', 'Multiple databases', 'Auto-scaling', '6 months support']
-                },
-                enterprise: {
-                    name: 'Enterprise Backend',
-                    price: 'Custom',
-                    features: ['Microservices', 'High availability', 'Custom integrations', '1 year support']
-                }
-            }
-        },
-        'security-devops': {
-            title: 'Security & DevOps',
-            icon: Shield,
-            hero: 'Secure & Automated Development Operations',
-            description: 'Protect your applications and streamline your development process with our comprehensive security and DevOps services. We implement best practices for secure, automated, and scalable deployments.',
-            features: [
-                {
-                    title: 'Security Audits',
-                    description: 'Comprehensive security assessments and vulnerability testing',
-                    technologies: ['Penetration Testing', 'OWASP', 'Security Scanning', 'Compliance']
-                },
-                {
-                    title: 'CI/CD Pipelines',
-                    description: 'Automated testing, building, and deployment workflows',
-                    technologies: ['GitHub Actions', 'Jenkins', 'GitLab CI', 'Azure DevOps']
-                },
-                {
-                    title: 'Infrastructure as Code',
-                    description: 'Version-controlled infrastructure management and automation',
-                    technologies: ['Terraform', 'CloudFormation', 'Ansible', 'Pulumi']
-                },
-                {
-                    title: 'Monitoring & Logging',
-                    description: 'Real-time application and infrastructure monitoring',
-                    technologies: ['Prometheus', 'Grafana', 'ELK Stack', 'DataDog']
-                }
+                'Security best practices'
             ],
             process: [
-                {
-                    step: 1,
-                    title: 'Security Assessment',
-                    description: 'Evaluating current security posture and identifying risks'
-                },
-                {step: 2, title: 'Pipeline Design', description: 'Creating automated deployment and testing workflows'},
-                {step: 3, title: 'Implementation', description: 'Setting up secure infrastructure and monitoring'},
-                {
-                    step: 4,
-                    title: 'Testing & Validation',
-                    description: 'Verifying security measures and pipeline functionality'
-                },
-                {step: 5, title: 'Ongoing Support', description: 'Continuous monitoring and security updates'}
+                'Architecture Planning',
+                'Database Design',
+                'API Development',
+                'Infrastructure Setup',
+                'Monitoring & Optimization'
             ],
+            pricing: {
+                starter: { price: '$4,999', duration: '6-8 weeks' },
+                professional: { price: '$12,999', duration: '10-14 weeks' },
+                enterprise: { price: 'Custom', duration: '14+ weeks' }
+            },
+            color: 'from-purple-500 to-purple-600'
+        },
+        {
+            id: 'devops-security',
+            icon: Shield,
+            title: 'DevOps & Security',
+            subtitle: 'Secure Development Operations',
+            description: 'Implement robust security measures and automated deployment pipelines for safe, efficient software delivery.',
+            features: [
+                'CI/CD Pipeline Setup',
+                'Security Audits & Testing',
+                'Infrastructure as Code',
+                'Monitoring & Logging',
+                'Automated Testing',
+                'Compliance Management'
+            ],
+            technologies: ['Jenkins', 'GitHub Actions', 'Terraform', 'Docker', 'Kubernetes', 'AWS Security'],
             benefits: [
                 'Automated security scanning',
                 'Faster and safer deployments',
                 'Real-time threat detection',
-                'Compliance with industry standards',
-                'Reduced downtime and incidents',
-                '24/7 monitoring and alerting'
+                'Compliance with standards',
+                'Reduced downtime',
+                '24/7 monitoring and alerts'
+            ],
+            process: [
+                'Security Assessment',
+                'Pipeline Design',
+                'Implementation',
+                'Testing & Validation',
+                'Ongoing Support'
             ],
             pricing: {
-                basic: {
-                    name: 'Basic Security Setup',
-                    price: '$3,999',
-                    features: ['Security audit', 'Basic CI/CD', 'Monitoring setup', '30 days support']
-                },
-                professional: {
-                    name: 'Advanced DevOps',
-                    price: '$9,999',
-                    features: ['Full CI/CD pipeline', 'Advanced monitoring', 'Security automation', '6 months support']
-                },
-                enterprise: {
-                    name: 'Enterprise Security',
-                    price: 'Custom',
-                    features: ['Custom security solutions', 'Compliance auditing', '24/7 monitoring', '1 year support']
-                }
-            }
+                starter: { price: '$3,999', duration: '4-6 weeks' },
+                professional: { price: '$9,999', duration: '8-12 weeks' },
+                enterprise: { price: 'Custom', duration: '12+ weeks' }
+            },
+            color: 'from-red-500 to-red-600'
         }
-    };
+    ];
 
-    const service = serviceDetails[selectedService];
-
-    // if (!service) return <div>Service not found</div>;
+    const currentService = services[activeService];
 
     return (
-        <div className="min-h-screen pt-20">
+        <div className="min-h-screen pt-20 bg-gray-50">
+            {/* Hero Section */}
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Our Services</h1>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Comprehensive software development solutions tailored to your business needs
+                        <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-6">Our Services</h1>
+                        <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                            Comprehensive software development solutions designed to accelerate your digital transformation and drive business success
                         </p>
                     </div>
 
-                    <div className="space-y-16">
-                        {[
-                            {
-                                id: 'web-development',
-                                icon: Globe,
-                                title: 'Web Development',
-                                desc: 'Modern, responsive websites and web applications built with the latest technologies',
-                                features: ['React/Next.js Applications', 'E-commerce Solutions', 'Progressive Web Apps', 'API Development']
-                            },
-                            {
-                                id: 'mobile-development',
-                                icon: Smartphone,
-                                title: 'Mobile App Development',
-                                desc: 'Native and cross-platform mobile applications for iOS and Android',
-                                features: ['Native iOS/Android Apps', 'React Native Solutions', 'Flutter Development', 'App Store Optimization']
-                            },
-                            {
-                                id: 'backend-systems',
-                                icon: Database,
-                                title: 'Backend & Database',
-                                desc: 'Scalable backend systems and database architecture for robust applications',
-                                features: ['REST & GraphQL APIs', 'Database Design', 'Cloud Infrastructure', 'Performance Optimization']
-                            },
-                            {
-                                id: 'security-devops',
-                                icon: Shield,
-                                title: 'Security & DevOps',
-                                desc: 'Comprehensive security implementations and DevOps practices',
-                                features: ['Security Audits', 'CI/CD Pipelines', 'Cloud Deployment', 'Monitoring & Logging']
-                            }
-                        ].map((service, index) => (
-                            <div key={index} className="grid lg:grid-cols-2 gap-12 items-center">
-                                <div className={`space-y-6 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                                    <div className="flex items-center space-x-4">
-                                        <div
-                                            className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center">
-                                            <service.icon className="w-8 h-8 text-white"/>
-                                        </div>
-                                        <h2 className="text-3xl font-bold text-gray-900">{service.title}</h2>
-                                    </div>
-                                    <p className="text-lg text-gray-600">{service.desc}</p>
-                                    <div className="grid sm:grid-cols-2 gap-3">
-                                        {service.features.map((feature, featureIndex) => (
-                                            <div key={featureIndex} className="flex items-center space-x-2">
-                                                <CheckCircle className="w-5 h-5 text-green-500"/>
-                                                <span className="text-gray-700">{feature}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <button
-                                        onClick={() => {
-                                            setSelectedService(service.id);
-                                            setCurrentPage('service-detail');
-                                        }}
-                                        className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-                                    >
-                                        <span>Learn More</span>
-                                        <ArrowRight className="w-4 h-4"/>
-                                    </button>
+                    {/* Service Navigation */}
+                    <div className="flex flex-wrap justify-center gap-4 mb-16">
+                        {services.map((service, index) => (
+                            <button
+                                key={service.id}
+                                onClick={() => setActiveService(index)}
+                                className={`flex items-center space-x-3 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                                    activeService === index
+                                        ? 'bg-slate-900 text-white shadow-lg'
+                                        : 'bg-white text-slate-600 border border-slate-200 hover:border-slate-300 hover:text-slate-900'
+                                }`}
+                            >
+                                <service.icon className="w-5 h-5" />
+                                <span>{service.title}</span>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Service Detail */}
+            <section className="py-20 bg-gray-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                        <div className="space-y-6">
+                            <div className="flex items-center space-x-4">
+                                <div className={`w-16 h-16 bg-gradient-to-r ${currentService.color} rounded-xl flex items-center justify-center shadow-lg`}>
+                                    <currentService.icon className="w-8 h-8 text-white" />
                                 </div>
-                                <div
-                                    className={`bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                                    <div
-                                        className="h-64 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl opacity-20"></div>
+                                <div>
+                                    <h2 className="text-3xl font-bold text-slate-900">{currentService.title}</h2>
+                                    <p className="text-slate-600 font-medium">{currentService.subtitle}</p>
                                 </div>
                             </div>
-                        ))}
+                            <p className="text-lg text-slate-600 leading-relaxed">{currentService.description}</p>
+
+                            <div className="grid sm:grid-cols-2 gap-4">
+                                {currentService.features.map((feature, index) => (
+                                    <div key={index} className="flex items-center space-x-3">
+                                        <CheckCircle className="w-5 h-5 text-emerald-500" />
+                                        <span className="text-slate-700">{feature}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="bg-white rounded-2xl p-8 shadow-lg">
+                            <h3 className="text-xl font-semibold text-slate-900 mb-6">Key Benefits</h3>
+                            <div className="space-y-4">
+                                {currentService.benefits.map((benefit, index) => (
+                                    <div key={index} className="flex items-start space-x-3">
+                                        <Star className="w-5 h-5 text-yellow-500 mt-0.5 flex-shrink-0" />
+                                        <span className="text-slate-600">{benefit}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Technologies */}
+                    <div className="bg-white rounded-2xl p-8 shadow-lg mb-16">
+                        <h3 className="text-2xl font-bold text-slate-900 text-center mb-8">Technologies We Use</h3>
+                        <div className="flex flex-wrap justify-center gap-4">
+                            {currentService.technologies.map((tech, index) => (
+                                <span key={index} className="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg font-medium hover:bg-slate-200 transition-colors">
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Process */}
+                    <div className="bg-white rounded-2xl p-8 shadow-lg mb-16">
+                        <h3 className="text-2xl font-bold text-slate-900 text-center mb-8">Our Process</h3>
+                        <div className="grid md:grid-cols-5 gap-6">
+                            {currentService.process.map((step, index) => (
+                                <div key={index} className="text-center">
+                                    <div className="w-12 h-12 bg-gradient-to-r from-slate-600 to-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <span className="text-white font-bold">{index + 1}</span>
+                                    </div>
+                                    <h4 className="font-semibold text-slate-900 mb-2">{step}</h4>
+                                    <div className="w-full h-1 bg-slate-200 rounded-full">
+                                        <div className="w-full h-1 bg-gradient-to-r from-slate-600 to-slate-700 rounded-full"></div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Pricing */}
+                    <div className="bg-white rounded-2xl p-8 shadow-lg">
+                        <h3 className="text-2xl font-bold text-slate-900 text-center mb-8">Investment Levels</h3>
+                        <div className="grid md:grid-cols-3 gap-8">
+                            {Object.entries(currentService.pricing).map(([tier, details], index) => (
+                                <div key={tier} className={`p-6 rounded-xl border-2 transition-all duration-300 ${
+                                    index === 1
+                                        ? 'border-slate-900 bg-slate-50 shadow-lg'
+                                        : 'border-slate-200 hover:border-slate-300'
+                                }`}>
+                                    <div className="text-center">
+                                        <h4 className="text-xl font-semibold text-slate-900 mb-2 capitalize">{tier}</h4>
+                                        <div className="text-3xl font-bold text-slate-900 mb-2">{details.price}</div>
+                                        <div className="flex items-center justify-center space-x-2 text-slate-600 mb-6">
+                                            <Clock className="w-4 h-4" />
+                                            <span className="text-sm">{details.duration}</span>
+                                        </div>
+                                        <button className={`w-full py-3 rounded-lg font-medium transition-all duration-300 ${
+                                            index === 1
+                                                ? 'bg-slate-900 text-white hover:bg-slate-800'
+                                                : 'bg-slate-100 text-slate-900 hover:bg-slate-200'
+                                        }`}>
+                                            Get Started
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="py-20 bg-slate-900">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <h2 className="text-3xl font-bold text-white mb-6">Ready to Get Started?</h2>
+                    <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+                        Lets discuss your project requirements and create a solution that drives your business forward.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button className="px-8 py-4 bg-white text-slate-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors">
+                            Schedule Consultation
+                        </button>
+                        <button className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-slate-900 transition-all duration-300">
+                            View Portfolio
+                        </button>
                     </div>
                 </div>
             </section>
@@ -378,4 +313,4 @@ const ServicePage = () => {
     );
 };
 
-export default ServicePage
+export default ServicesPage;
