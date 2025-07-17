@@ -208,7 +208,7 @@ const HomePage = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold text-gray-900 mb-4">Recent Success Stories</h2>
-                        <p className="text-xl text-gray-600">Discover how we've helped businesses transform digitally</p>
+                        <p className="text-xl text-gray-600">Discover how we&apos;ve helped businesses transform digitally</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -276,7 +276,7 @@ const HomePage = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-                        <p className="text-xl text-gray-600">Don't just take our word for it - hear from our satisfied clients</p>
+                        <p className="text-xl text-gray-600">Don&apos;t just take our word for it - hear from our satisfied clients</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
@@ -311,7 +311,7 @@ const HomePage = () => {
                                     </div>
                                 </div>
                                 <blockquote className="text-gray-600 italic">
-                                    "{testimonial.quote}"
+                                    {testimonial.quote}
                                 </blockquote>
                                 <div className="flex text-yellow-400 mt-4">
                                     {[...Array(5)].map((_, i) => (
@@ -382,7 +382,7 @@ const HomePage = () => {
                     <div className="max-w-3xl mx-auto">
                         <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Business?</h2>
                         <p className="text-xl text-blue-100 mb-8">
-                            Let's discuss how we can help you achieve your digital goals with innovative software solutions.
+                            Let&apos;s discuss how we can help you achieve your digital goals with innovative software solutions.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link

@@ -297,7 +297,7 @@ const ServiceDetailPage = () => {
                         </div>
                         <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
                             <h3 className="text-2xl font-bold mb-6">Ready to Get Started?</h3>
-                            <p className="mb-6">Let's discuss your project and create something amazing together.</p>
+                            <p className="mb-6">Let&apos;s discuss your project and create something amazing together.</p>
                             <button
                                 onClick={() => setCurrentPage('contact')}
                                 className="w-full px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors"

@@ -263,7 +263,7 @@ const ProjectsPage = () => {
                                     <h3 className="text-2xl font-bold mb-4">Client</h3>
                                     <p className="text-xl mb-6">{project.client}</p>
                                     <div className="bg-white/20 rounded-lg p-4">
-                                        <p className="italic mb-2">"{project.testimonial.text}"</p>
+                                        <p className="italic mb-2">{project.testimonial.text}</p>
                                         <p className="text-sm font-medium">— {project.testimonial.author}</p>
                                     </div>
                                 </div>
@@ -430,7 +430,7 @@ const ProjectsPage = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <h2 className="text-3xl font-bold text-gray-900 mb-6">Ready to Start Your Project?</h2>
                     <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                        Let's discuss how we can bring your vision to life with our proven expertise and cutting-edge technologies.
+                        Let&apos;s discuss how we can bring your vision to life with our proven expertise and cutting-edge technologies.
                     </p>
                     <button
                         onClick={() => setCurrentPage('contact')}

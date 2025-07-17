@@ -11,7 +11,7 @@ const AboutPage = () => {
                 <div className="text-center mb-16">
                     <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">About TechCraft</h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        We're a passionate team of developers, designers, and innovators dedicated to creating exceptional software solutions that drive business success.
+                        We&apos;re a passionate team of developers, designers, and innovators dedicated to creating exceptional software solutions that drive business success.
                     </p>
                 </div>
 
@@ -19,7 +19,7 @@ const AboutPage = () => {
                     <div className="space-y-6">
                         <h2 className="text-3xl font-bold text-gray-900">Our Mission</h2>
                         <p className="text-gray-600 text-lg leading-relaxed">
-                            To empower businesses through innovative technology solutions that not only meet today's challenges but anticipate tomorrow's opportunities. We believe in the transformative power of well-crafted software.
+                            To empower businesses through innovative technology solutions that not only meet today&apos;s challenges but anticipate tomorrow&apos;s opportunities. We believe in the transformative power of well-crafted software.
                         </p>
                         <div className="grid sm:grid-cols-2 gap-4">
                             {[
